@@ -1,6 +1,41 @@
 .App {
   text-align: center;
+
 }
+.bar {
+  height: 100px;
+  width: 100%;
+  background-color: #755c5c;
+  position: absolute;
+}
+
+.logo {
+  background-image: url('./logo/uniform_logo.png');
+  height: 100px;
+  width: 300px;
+  background-size : cover;
+  background-position : center;
+  position: relative;
+}
+
+.mypage-btn {
+  border-radius: 30px;
+  height: 70px;
+  width: 70px;
+  background-color: #ffffff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 33px;
+  margin-top: 13px;
+}
+
+
+.menu-container {
+  display: flex;
+  padding: 40px;
+}
+
 
 .App-logo {
   height: 40vmin;
