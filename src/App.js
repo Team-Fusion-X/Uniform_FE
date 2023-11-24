@@ -3,7 +3,6 @@ import React from 'react';
 import SignUpPage from './signUpPage.js';
 import SignUpPage2 from './signUpPage2.js';
 import LoginPage from './loginPage.js';
-import { Routes, Route } from 'react-router-dom'
 
 function App() {
   return (
