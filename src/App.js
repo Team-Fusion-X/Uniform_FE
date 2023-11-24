@@ -7,6 +7,7 @@ import MapAnalysis from './menu/mapAnalysis.js';
 import ChatBot from './menu/chatBot.js';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import MyPage from './myPage/myPage.js';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
       <div className="bar" />
       <div className="logo" />
       <div className="mypage-btn">
-        <Link to="login">
+        <Link to="mypage">
           로그인/마이페이지
         </Link>
       </div>
@@ -32,6 +33,7 @@ function App() {
           </div>   
         }/>
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/mypage" element={<MyPage />} />
       </Routes>
 
 
