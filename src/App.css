@@ -1,5 +1,20 @@
+body {
+  background-color: #1BBC9B;
+}
+
 .App {
   text-align: center;
+  padding: 20px;
+}
+
+/*로그인 페이지*/
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #EEEFF1;
 }
 
 label {
@@ -13,18 +28,21 @@ input {
   width: 95%;
   padding: 10px;
   margin-bottom: 10px;
-  border: 1px solid #ccc;
+  border: 2px solid #1BBC9B;
   border-radius: 3px;
 }
 
 .loginButton {
-  background-color: #c8ccc8;
   width: 100%;
+  color: white;
+  font-weight: bolder;
+  font-size: 15px;
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 5px;
   border: 1px solid #ccc;
   border-radius: 3px;
+  background-color: #1BBC9B;
 }
 
 .belowFormGroup {
@@ -65,4 +83,73 @@ input {
 
 .idFind {
   display: flex;
+}
+
+/*회원가입1 페이지*/
+.confirmNumberGroup {
+  display: flex;
+  gap: 10px; 
+  align-items: center;
+}
+
+.confirmNumberGroup input {
+  flex: 1;
+}
+
+.confirmNumberGroup button {
+  height: 35px;
+  color: white;
+  font-weight: bolder;
+  font-size: 12px;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  background-color: #1BBC9B;
+  border: 2px solid #1BBC9B;
+}
+
+.nextButton {
+  width: 100%;
+  color: white;
+  font-weight: bolder;
+  font-size: 15px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: #1BBC9B;
+}
+
+/*회원가입2 페이지*/
+.confirmIdGroup {
+  display: flex;
+  gap: 10px; 
+  align-items: center;
+}
+
+.confirmIdGroup input {
+  flex: 1;
+}
+
+.confirmIdGroup button {
+  height: 35px;
+  color: white;
+  font-weight: bolder;
+  font-size: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: #1BBC9B;
+}
+
+.signUpButton {
+  width: 100%;
+  color: white;
+  font-weight: bolder;
+  font-size: 15px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: #1BBC9B;
 }
