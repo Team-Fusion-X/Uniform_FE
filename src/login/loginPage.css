@@ -1,0 +1,99 @@
+body {
+  background-color: #1BBC9B;
+}
+
+.App {
+  text-align: center;
+  padding: 20px;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #EEEFF1;
+}
+  
+label {
+    display: block;
+    margin-bottom: 10px;
+    flex: 1;
+}
+  
+input {
+    flex: 1;
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #1BBC9B;
+    border-radius: 3px;
+}
+  
+.mypage-btn {
+    border-radius: 30px;
+    height: 70px;
+    width: 70px;
+    background-color: #ffffff;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 33px;
+    margin-top: 13px;
+    text-align: center;
+}
+  
+.loginButton {
+    width: 100%;
+    color: white;
+    font-weight: bolder;
+    font-size: 15px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #1BBC9B;
+  
+}
+  
+.belowFormGroup {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    white-space: nowrap; 
+}
+  
+.rememberId {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+  
+.rememberId label {
+    display: flex;
+    font-size: 11px;
+    align-items: center;
+    margin-right: 30px;
+}
+  
+.rememberId input {
+    margin-top: 12px;
+}
+  
+.signUpFindGroup {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 11px;
+    gap: 10px;
+    white-space: nowrap;
+}
+  
+.signUp {
+    display: flex;
+}
+  
+.idFind {
+    display: flex;
+}

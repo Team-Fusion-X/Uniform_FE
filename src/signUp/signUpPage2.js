@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css';
+import './signUpPage.css';
 
 function SignUpPage2() {
   // state 사용해서 입력 정보 관리

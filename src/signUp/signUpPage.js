@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './App.css';
+import './signUpPage.css';
 
 function SignUpPage() {
     // 페이지 이동하는 useNavigate 사용
