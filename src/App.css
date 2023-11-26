@@ -3,6 +3,7 @@
   width: 100%;
   background-color: #755c5c;
   position: absolute;
+}
   
 body {
   background-color: #1BBC9B;
@@ -49,6 +50,7 @@ input {
   margin-right: 33px;
   margin-top: 13px;
   text-align: center;
+}
 
 .loginButton {
   width: 100%;

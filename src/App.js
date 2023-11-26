@@ -35,12 +35,12 @@ function App() {
             </div>
           </div>   
         }/>
+      </Routes>
+      <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/mypage" element={<MyPage />} />
-      <Routes>
-          <Route path="/signup" element={<SignUpPage />} />
-          <Route path="/signup2" element={<SignUpPage2 />} />
-          <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/signup2" element={<SignUpPage2 />} />
       </Routes>
     </div>
   );
