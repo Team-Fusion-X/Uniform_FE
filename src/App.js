@@ -8,7 +8,6 @@ import FocusAnalysis from './menu/focusAnalysis.js';
 import AllAnalysis from './menu/allAnalysis.js';
 import MapAnalysis from './menu/mapAnalysis.js';
 import ChatBot from './menu/chatBot.js';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import MyPage from './myPage/myPage.js';
 
 function App() {
