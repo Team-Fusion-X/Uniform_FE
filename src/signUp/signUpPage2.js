@@ -1,73 +1,99 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './signUpPage.css';
 
 function SignUpPage2() {
-  // state 사용해서 입력 정보 관리
+  // 페이지 이동을 위한 useNavigate 사용
+  const navigate = useNavigate();
+
+  // 입력된 정보를 상태로 관리
   const [formData, setFormData] = useState({
     userId: '',
     password: '',
     confirmPassword: '',
   });
 
-  // 아이디 중복 여부를 state로 관리
-  const [isUserIdAvailable, setIsUserIdAvailable] = useState(false);
-
-  // 비밀번호 일치 여부를 state로 관리
+  // 사용자의 인증 여부를 관리하는 상태 변수
+  const [isUserIdAvailable, setIsUserIdAvailable] = useState(true);
   const [isPasswordMatch, setIsPasswordMatch] = useState(true);
 
-  // 입력 값에 대한 상태를 업데이트하는 함수
+  // 사용자 입력 값이 변경될 때 호출되는 함수
   function handleChange(e) {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
 
-    // 비밀번호와 비밀번호 확인이 일치하는지 여부 확인
     if (e.target.name === 'confirmPassword') {
       setIsPasswordMatch(formData.password === e.target.value);
     }
   }
 
-  // 아이디 중복 확인 함수
-  function handleCheckDuplicate() {
-    // 임의로 아이디 값을 지정
-    const existingUserId = 'test123';
-
-    if (formData.userId === existingUserId) {
-      // 아이디가 중복되는 경우
-      alert('입력하신 아이디는 이미 존재합니다.');
-      setIsUserIdAvailable(false);
-    } else {
-      // 아이디가 중복되지 않는 경우
-      alert('사용 가능한 아이디입니다!');
-      setIsUserIdAvailable(true);
-    }
-  }
-
-  // 회원가입하기 버튼을 눌렀을 때에 대한 함수
-  function handleSubmit(e) {
-    e.preventDefault(); // 이벤트의 기본 동작을 막는 메서드
-
-    // 아이디와 비밀번호에 대한 정규 표현식
+  // 입력값 유효성 검사 함수
+  function validateInput() {
+    // 정규식 패턴 설정
     const userIdPattern = /^[a-zA-Z0-9]{8,}$/;
     const passwordPattern = /^[a-zA-Z0-9]{8,}$/;
 
-    // 사용 가능한 아이디이고, 비밀번호와 비밀번호 확인이 일치하는 경우
-    if (isUserIdAvailable && isPasswordMatch) {
-      // 성공 메시지 띄움
+    let isValid = true;
+
+    // 아이디 유효성 검사
+    if (!userIdPattern.test(formData.userId)) {
+      alert('아이디는 영문 숫자 조합 8글자 이상이어야 합니다.');
+      isValid = false;
+    }
+
+    // 비밀번호 유효성 검사
+    if (!passwordPattern.test(formData.password)) {
+      alert('비밀번호는 영문 숫자 조합 8글자 이상이어야 합니다.');
+      isValid = false;
+    }
+
+    return isValid;
+  }
+
+  // 중복 확인 함수
+  function handleCheckDuplicate() {
+    // 임의의 중복 확인 로직
+    const existingUserIds = ['test1234', 'user4567', 'admin789'];
+  
+    // 중복 여부 확인
+    const isDuplicate = existingUserIds.some(id => id === formData.userId);
+  
+    // 중복 시 처리
+    if (isDuplicate) {
+      setIsUserIdAvailable(false);
+      alert('입력하신 아이디는 이미 존재합니다.');
+    // 아이디 형식 불일치 시 처리
+    } else if (!/^[a-zA-Z0-9]{8,}$/.test(formData.userId)) {
+      setIsUserIdAvailable(false);
+      alert('아이디는 영문 숫자 조합 8글자 이상이어야 합니다.');
+    // 중복이 없고 아이디 형식도 일치하는 경우
+    } else {
+      setIsUserIdAvailable(true);
+      alert('사용 가능한 아이디입니다!');
+    }
+  }  
+
+  // 회원가입 제출 함수
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    // 모든 조건이 충족될 때 회원가입 성공 처리
+    if (isUserIdAvailable && isPasswordMatch && validateInput()) {
+      // 회원가입 성공 알림창
       const isSuccess = window.confirm('회원가입 성공! 입시정보왕이 되어 보세요!');
 
+      // 확인 시 초기화 및 홈페이지 이동
       if (isSuccess) {
-        // 성공하면 입력정보를 초기화
         setFormData({
           userId: '',
           password: '',
           confirmPassword: '',
         });
+
+        navigate('/');
       }
-    } else {
-      // 실패한 경우 알림창 띄움
-      alert('인증을 모두 완료해주세요.');
     }
   }
 
@@ -86,7 +112,9 @@ function SignUpPage2() {
                 onChange={handleChange}
                 autoComplete="off"
               />
-              <button type="button" onClick={handleCheckDuplicate}>중복확인</button>
+              <button type="button" onClick={handleCheckDuplicate}>
+                중복확인
+              </button>
             </div>
             <input
               type="password"
@@ -103,9 +131,13 @@ function SignUpPage2() {
               onChange={handleChange}
             />
             {!isPasswordMatch && (
-              <div style={{ color: 'black', fontSize: 11}}>비밀번호가 일치하지 않습니다. 다시 확인해주세요.</div>
+              <div style={{ color: 'black', fontSize: 11 }}>
+                비밀번호가 일치하지 않습니다. 다시 확인해주세요.
+              </div>
             )}
-            <button type="submit" className="signUpButton">회원가입하기</button>
+            <button type="submit" className="signUpButton">
+              회원가입하기
+            </button>
           </div>
         </div>
       </form>
