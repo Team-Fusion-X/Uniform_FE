@@ -5,7 +5,16 @@
   position: absolute;
 }
 
-.App {
-  text-align: center;
-  padding: 20px;
+.logo {
+  background-image: url('./logo/uniform_logo.png');
+  height: 100px;
+  width: 300px;
+  background-size : cover;
+  background-position : center;
+  position: relative;
+}
+
+.menu-container {
+  display: flex;
+  padding: 40px;
 }
