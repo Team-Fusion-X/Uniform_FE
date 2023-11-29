@@ -156,10 +156,10 @@ function handleSubmit(e) {
             <label className="signUp" onClick={() => navigate('/signup')}>
               회원가입
             </label>
-            <label className="idFind" onClick={() => navigate('/findId')}>
+            <label className="idFind" onClick={() => navigate('/idFinder')}>
               아이디 찾기
             </label>
-            <label className="passwordFind" onClick={() => navigate('/findPassword')}>
+            <label className="passwordFind" onClick={() => navigate('/passwordFinder')}>
               비밀번호 찾기
             </label>
           </div>

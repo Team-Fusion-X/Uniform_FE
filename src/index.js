@@ -11,6 +11,8 @@ import MyPage from './myPage/myPage.js';
 import SignUpPage from './signUp/signUpPage.js';
 import SignUpPage2 from './signUp/signUpPage2.js';
 import LoginPage from './login/loginPage.js';
+import IdFinder from './login/idFinder.js';
+import PasswordFinder from './login/passwordFinder.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -21,6 +23,8 @@ root.render(
         <Routes>
           <Route path="/" element={<App />}/>
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/idFinder" element={<IdFinder />} />
+          <Route path="/passwordFinder" element={<PasswordFinder />} />
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/signup2" element={<SignUpPage2 />} />

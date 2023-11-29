@@ -97,3 +97,46 @@ input {
 .idFind {
     display: flex;
 }
+
+.idFind {
+    display: flex;
+}
+
+.idFindButton {
+    width: 100%;
+    color: white;
+    font-weight: bolder;
+    font-size: 15px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #1BBC9B; 
+}
+
+.passwordFindButton {
+    width: 100%;
+    color: white;
+    font-weight: bolder;
+    font-size: 15px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #1BBC9B; 
+}
+
+.passwordFindButton {
+    width: 100%;
+    color: white;
+    font-weight: bolder;
+    font-size: 15px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #1BBC9B; 
+}
