@@ -98,7 +98,10 @@ function SignUpPage2() {
   }
 
   return (
-    <div>
+    <div className="bodyPage">
+      <div className="bar">
+        <div className="logo" />
+      </div>
       <h2>회원가입</h2>
       <form onSubmit={handleSubmit}>
         <div className="formGroup">

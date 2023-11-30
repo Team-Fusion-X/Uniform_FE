@@ -1,5 +1,10 @@
-/*회원가입1 페이지*/
+.signUpPage {
+  background-color: #1BBC9B;
+  width: 100%;
+  height: 750px;
+}
 
+/*회원가입1 페이지*/
 .verificationNumberGroup {
   display: flex;
   gap: 10px; 
@@ -11,12 +16,12 @@
 }
 
 .verificationNumberButton {
-  height: 35px;
+  height: 38px;
   color: white;
   font-weight: bolder;
   font-size: 12px;
   margin-bottom: 10px;
-  border-radius: 3px;
+  border-radius: 5px;
   background-color: #1BBC9B;
   border: 2px solid #1BBC9B;
 }
@@ -32,12 +37,12 @@
 }
 
 .confirmNumberGroup button {
-  height: 35px;
+  height: 38px;
   color: white;
   font-weight: bolder;
   font-size: 12px;
   margin-bottom: 10px;
-  border-radius: 3px;
+  border-radius: 5px;
   background-color: #1BBC9B;
   border: 2px solid #1BBC9B;
 }
@@ -49,8 +54,9 @@
   font-size: 15px;
   padding: 10px;
   margin-bottom: 10px;
+  margin-left: 1px;
   border: 1px solid #ccc;
-  border-radius: 3px;
+  border-radius: 5px;
   background-color: #1BBC9B;
 }
 
@@ -66,13 +72,13 @@
 }
 
 .confirmIdGroup button {
-  height: 35px;
+  height: 38px;
   color: white;
   font-weight: bolder;
   font-size: 12px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
-  border-radius: 3px;
+  border-radius: 5px;
   background-color: #1BBC9B;
 }
 
@@ -84,7 +90,8 @@
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
+  margin-left: 1px;
   border: 1px solid #ccc;
-  border-radius: 3px;
+  border-radius: 5px;
   background-color: #1BBC9B;
 }
