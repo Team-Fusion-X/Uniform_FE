@@ -55,8 +55,11 @@ function PasswordFinder() {
   }
 
   return (
-    <div>
-      <h2>패스워드 찾기</h2>
+    <div className="loginPage">
+        <div className="bar">
+            <div className="logo" />
+        </div>
+      <h2>비밀번호 찾기</h2>
       <form onSubmit={handleSubmit}>
         <div className="formGroup">
           <div className="passwordFindFormGroup">
@@ -79,7 +82,7 @@ function PasswordFinder() {
           </div>
         </div>
         <button type="submit" className="passwordFindButton">
-          패스워드 찾기
+          비밀번호 찾기
         </button>
       </form>
     </div>
