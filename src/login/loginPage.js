@@ -115,8 +115,8 @@ function handleSubmit(e) {
 
   return (
     <div className="loginPage">
-      <div className="bar">
-        <div className="logo" />
+      <div className="mainBar">
+        <div className="mainLogo" />
       </div>
       <h2>로그인</h2>
       <form onSubmit={handleSubmit}>
