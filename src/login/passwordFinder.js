@@ -56,8 +56,8 @@ function PasswordFinder() {
 
   return (
     <div className="loginPage">
-        <div className="bar">
-            <div className="logo" />
+        <div className="mainBar">
+            <div className="mainLogo" />
         </div>
       <h2>비밀번호 찾기</h2>
       <form onSubmit={handleSubmit}>

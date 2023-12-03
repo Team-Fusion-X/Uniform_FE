@@ -116,8 +116,8 @@ function SignUpPage() {
 
   return (
     <div className="signUpPage">
-      <div className="bar">
-        <div className="logo" />
+      <div className="mainBar">
+        <div className="mainLogo" />
       </div>
       <h2>회원가입</h2>
       <form onSubmit={handleSubmit}>

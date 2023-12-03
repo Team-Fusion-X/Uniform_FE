@@ -4,6 +4,27 @@
   height: 750px;
 }
 
+.loginPage {
+  height: 750px;
+  background-color: #1BBC9B;
+}
+
+.loginBar {
+  height: 100px;
+  width: 100%;
+  background-color: #755c5c;
+  position: relative;
+}
+
+.mainLogo {
+  background-image: url('../logo/uniform_logo.png');
+  height: 100px;
+  width: 300px;
+  background-size : cover;
+  background-position : center;
+  position: relative;
+}
+
 /*회원가입1 페이지*/
 .verificationNumberGroup {
   display: flex;
