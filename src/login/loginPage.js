@@ -118,10 +118,10 @@ function handleSubmit(e) {
       <div className="mainBar">
         <div className="mainLogo" />
       </div>
-      <h2>로그인</h2>
       <form onSubmit={handleSubmit}>
         <div className="formGroup">
           <div className="loginFormGroup">
+            <h2>UNIform</h2>
             <input
               type="text"
               name="userId"
