@@ -59,10 +59,10 @@ function PasswordFinder() {
         <div className="mainBar">
             <div className="mainLogo" />
         </div>
-      <h2>비밀번호 찾기</h2>
       <form onSubmit={handleSubmit}>
         <div className="formGroup">
           <div className="passwordFindFormGroup">
+            <h2>UNIform</h2>
             <input
               type="text"
               name="userId"

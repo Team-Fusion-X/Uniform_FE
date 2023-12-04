@@ -1,6 +1,5 @@
 .loginPage {
   height: 750px;
-  background-color: #1BBC9B;
 }
 
 .mainBar {
@@ -19,22 +18,24 @@
   position: relative;
 }
 
-h2 {
-    margin-top: 80px;
-    text-align: center;
-    font-size: 25px;
-    font-weight: bolder;
+form {
+    margin-top: 120px;
+    margin-left: 500px;
+    max-width: 480px;
+    padding: 20px;
+    border: 2px solid #ff8d3f;
+    border-radius: 5px;
+    background-color: white;
 }
 
-form {
-    max-width: 480px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #EEEFF1;
+.loginFormGroup h2 {
+    text-align: center;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 45px;
+    font-weight: bolder;
+    color: #ff8d3f;
 }
-  
+
 label {
     display: block;
     margin-bottom: 10px;
@@ -46,7 +47,7 @@ input {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-    border: 2px solid #1BBC9B;
+    border: 2px solid #ff8d3f;
     border-radius: 3px;
 }
   
@@ -72,10 +73,9 @@ input {
     margin-top: 10px;
     margin-bottom: 5px;
     margin-left: 1px;
-    border: 1px solid #ccc;
+    border: 1px solid #ff8d3f;
     border-radius: 5px;
-    background-color: #1BBC9B;
-  
+    background-color: #ff8d3f;
 }
   
 .belowFormGroup {
@@ -113,6 +113,15 @@ input {
 .signUp {
     display: flex;
 }
+
+/*아이디 찾기 페이지*/
+.idFindFormGroup h2 {
+    text-align: center;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 45px;
+    font-weight: bolder;
+    color: #ff8d3f;
+}
   
 .idFind {
     display: flex;
@@ -127,9 +136,18 @@ input {
     margin-top: 10px;
     margin-bottom: 5px;
     margin-left: 1px;
-    border: 1px solid #ccc;
+    border: 1px solid #ff8d3f;
     border-radius: 5px;
-    background-color: #1BBC9B; 
+    background-color: #ff8d3f; 
+}
+
+/*패스워드 찾기 페이지*/
+.passwordFindFormGroup h2 {
+    text-align: center;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 45px;
+    font-weight: bolder;
+    color: #ff8d3f;
 }
 
 .passwordFindButton {
@@ -141,7 +159,7 @@ input {
     margin-top: 10px;
     margin-bottom: 5px;
     margin-left: 1px;
-    border: 1px solid #ccc;
+    border: 1px solid #ff8d3f;
     border-radius: 5px;
-    background-color: #1BBC9B; 
+    background-color: #ff8d3f; 
 }

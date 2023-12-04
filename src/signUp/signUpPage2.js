@@ -100,10 +100,10 @@ function SignUpPage2() {
       <div className="mainBar">
         <div className="mainLogo" />
       </div>
-      <h2>회원가입</h2>
       <form onSubmit={handleSubmit}>
         <div className="formGroup">
           <div className="idPasswordGroup">
+            <h2>UNIform</h2>
             <div className="confirmIdGroup">
               <input
                 type="text"
