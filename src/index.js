@@ -13,6 +13,7 @@ import SignUpPage2 from './signUp/signUpPage2.js';
 import LoginPage from './login/loginPage.js';
 import IdFinder from './login/idFinder.js';
 import PasswordFinder from './login/passwordFinder.js';
+import ChatBot from './chatBot/chatBotPage.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -28,6 +29,7 @@ root.render(
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/signup2" element={<SignUpPage2 />} />
+          <Route path="/chatbot" element={<ChatBot />} />
         </Routes>
         
       </BrowserRouter>
