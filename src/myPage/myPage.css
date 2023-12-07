@@ -1,15 +1,91 @@
+.profile-box img {
+  height: auto;
+  width: 260px;
+  height: 260px;
+  background-color: rgb(234, 234, 234);
+  border-radius: 30px;
+}
+
+.Layout {
+  display: flex;
+}
+
+.edit-btn {
+  width: 100%;
+}
+
+.form-container {
+  display: block;
+}
+
+.edit-btn {
+  border-radius: 5px;
+}
+
+.footer { 
+  display: flex;
+  justify-content: center;
+  margin-top: 300px;
+}
+
+.my-award {
+  margin-top: 50px;
+}
+
+.sidebar {
+  width: 150px;
+  height: 100vh;
+  background: #FF8D3F;
+  position: fixed;
+  z-index: 5;
+  color: white;
+  /* 애니메이션시작 */
+  transition : all 0.5s;
+  transform: translateX(-100px);
+  padding: 10px;
+}
+
+/* 애니메이션최종 */
+.sidebar:hover {
+  transition : all 0.5s;
+  transform: translateX(0px);
+}
+
+.sidebar i {
+  transition: all 0.5s;
+  transform: translateX(100px);
+  font-size: 24px; /* 아이콘의 크기를 24px로 조정 */
+  display: inline-block; /* 인라인 요소를 블록 요소로 변경하여 중앙 정렬을 가능하게 함 */
+  vertical-align: middle; /* 세로 정렬을 중앙으로 설정 */
+}
+
+.sidebar-tab {
+  height: 40px;
+
+}
+
+.sidebar span {
+  cursor: pointer;
+}
+
+.sidebar:hover i {
+  transform: translateX(0px);
+} 
+
+.sidebar div{
+  margin: 12px, 0px, 0px, 15px;
+}
+
+.content { 
+  margin-left: 50px;
+}
+
+
+
 .grid {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.main-title {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 32px;
-  color: #000000;
 }
 
 .title {
@@ -41,27 +117,12 @@
   align-items: center;
 }
 
-.number {
+/* .number {
   display: flex;
   align-items: center;
-}
-
-.button {
-  border-radius: 5px;
-  padding: 10px;
-  background-color: #755c5c;
-  height: 50px;
-  margin-right: 25px;
-  margin-left: 25px;
-}
-
-.btn-text {
-  font-size: 16px;
-  color: #ffffff;
-}
+} */
 
 .leave  {
-  color: #818181;
-  text-decoration: underline;
   text-align: left;
+  
 }

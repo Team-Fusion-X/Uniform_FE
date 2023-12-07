@@ -4,13 +4,17 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
-import { Provider } from "react-redux";
-import store from './store.js';
 import { Routes, Route } from 'react-router-dom';
 import MyPage from './myPage/myPage.js';
 import SignUpPage from './signUp/signUpPage.js';
 import SignUpPage2 from './signUp/signUpPage2.js';
 import LoginPage from './login/loginPage.js';
+import MySpec from './mySpec/mySpec.js';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  //<React.StrictMode>
+=======
 import IdFinder from './login/idFinder.js';
 import PasswordFinder from './login/passwordFinder.js';
 import ChatBot from './chatBot/chatBotPage.js';
@@ -27,12 +31,15 @@ root.render(
           <Route path="/idFinder" element={<IdFinder />} />
           <Route path="/passwordFinder" element={<PasswordFinder />} />
           <Route path="/mypage" element={<MyPage />} />
+          <Route path="/myspec" element={<MySpec />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/signup2" element={<SignUpPage2 />} />
           <Route path="/chatbot" element={<ChatBot />} />
         </Routes>
         
       </BrowserRouter>
+  //</React.StrictMode>
+=======
     </Provider>
   </React.StrictMode>
 );

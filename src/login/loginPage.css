@@ -1,3 +1,7 @@
+/* body {
+  background-color: #1BBC9B;
+} */
+=======
 .loginPage {
   height: 750px;
 }
@@ -42,14 +46,14 @@ label {
     flex: 1;
 }
   
-input {
+/* input {
     flex: 1;
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
     border: 2px solid #ff8d3f;
     border-radius: 3px;
-}
+} */
   
 .mypage-btn {
     border-radius: 30px;
