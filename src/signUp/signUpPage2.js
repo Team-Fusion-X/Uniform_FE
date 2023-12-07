@@ -6,7 +6,7 @@ function SignUpPage2() {
   // 페이지 이동을 위한 useNavigate 사용
   const navigate = useNavigate();
 
-  // 입력된 정보를 상태로 관리
+  // 입력된 정보를 상태로 관리s
   const [formData, setFormData] = useState({
     userId: '',
     password: '',
@@ -31,21 +31,20 @@ function SignUpPage2() {
 
   // 입력값 유효성 검사 함수
   function validateInput() {
-    // 정규식 패턴 설정
-    const userIdPattern = /^[a-zA-Z0-9]{8,}$/;
-    const passwordPattern = /^[a-zA-Z0-9]{8,}$/;
+    const userIdPattern = /^(?=.*[a-zA-Z])(?=.*[0-9!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
+    const passwordPattern = /^(?=.*[a-zA-Z])(?=.*[0-9!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
 
     let isValid = true;
 
-    // 아이디 유효성 검사
+     // 아이디 유효성 검사
     if (!userIdPattern.test(formData.userId)) {
-      alert('아이디는 영문 숫자 조합 8글자 이상이어야 합니다.');
+      alert('아이디는 영문, 숫자, 특수문자 중 2가지 이상의 조합으로 8글자 이상이어야 합니다.');
       isValid = false;
     }
 
-    // 비밀번호 유효성 검사
+     // 비밀번호 유효성 검사
     if (!passwordPattern.test(formData.password)) {
-      alert('비밀번호는 영문 숫자 조합 8글자 이상이어야 합니다.');
+      alert('비밀번호는 영문, 숫자, 특수문자 중 2가지 이상의 조합으로 8글자 이상이어야 합니다.');
       isValid = false;
     }
 
@@ -56,24 +55,23 @@ function SignUpPage2() {
   function handleCheckDuplicate() {
     // 임의의 중복 확인 로직
     const existingUserIds = ['test1234', 'user4567', 'admin789'];
-  
     // 중복 여부 확인
     const isDuplicate = existingUserIds.some(id => id === formData.userId);
-  
+
     // 중복 시 처리
     if (isDuplicate) {
       setIsUserIdAvailable(false);
       alert('입력하신 아이디는 이미 존재합니다.');
     // 아이디 형식 불일치 시 처리
-    } else if (!/^[a-zA-Z0-9]{8,}$/.test(formData.userId)) {
+    } else if (!/^(?=.*[a-zA-Z])(?=.*[0-9!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/.test(formData.userId)) {
       setIsUserIdAvailable(false);
-      alert('아이디는 영문 숫자 조합 8글자 이상이어야 합니다.');
+      alert('아이디는 영문, 숫자, 특수문자 중 2가지 이상의 조합으로 8글자 이상이어야 합니다.');
     // 중복이 없고 아이디 형식도 일치하는 경우
     } else {
       setIsUserIdAvailable(true);
       alert('사용 가능한 아이디입니다!');
     }
-  }  
+  }
 
   // 회원가입 제출 함수
   function handleSubmit(e) {
@@ -98,11 +96,14 @@ function SignUpPage2() {
   }
 
   return (
-    <div>
-      <h2>회원가입</h2>
+    <div className="signUpPage">
+      <div className="mainBar">
+        <div className="mainLogo" />
+      </div>
       <form onSubmit={handleSubmit}>
         <div className="formGroup">
           <div className="idPasswordGroup">
+            <h2>UNIform</h2>
             <div className="confirmIdGroup">
               <input
                 type="text"

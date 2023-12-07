@@ -114,14 +114,18 @@ function handleSubmit(e) {
 }
 
   return (
-    <div>
-      <h2>로그인</h2>
+    <div className="loginPage">
+      <div className="mainBar">
+        <div className="mainLogo" />
+      </div>
       <form onSubmit={handleSubmit}>
         <div className="formGroup">
           <div className="loginFormGroup">
+            <h2>UNIform</h2>
             <input
               type="text"
               name="userId"
+              className="id"
               placeholder="아이디"
               value={formData.userId}
               onChange={handleChange}
@@ -156,10 +160,10 @@ function handleSubmit(e) {
             <label className="signUp" onClick={() => navigate('/signup')}>
               회원가입
             </label>
-            <label className="idFind" onClick={() => navigate('/findId')}>
+            <label className="idFind" onClick={() => navigate('/IdFinder')}>
               아이디 찾기
             </label>
-            <label className="passwordFind" onClick={() => navigate('/findPassword')}>
+            <label className="passwordFind" onClick={() => navigate('/passwordFinder')}>
               비밀번호 찾기
             </label>
           </div>

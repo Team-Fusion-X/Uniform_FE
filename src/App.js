@@ -12,13 +12,13 @@ function App() {
   return (
     <div className="App">
       
-      {/* <div className="bar" />
+      <div className="bar" />
       <div className="logo" />
       <div className="mypage-btn">
         <Link to="login">
           로그인/마이페이지
         </Link>
-      </div> */}
+      </div>
       <Routes>
         <Route path="/" element={
             <div>

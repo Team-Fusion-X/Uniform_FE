@@ -1,4 +1,33 @@
+.signUpPage {
+  /*background-color: #1BBC9B;*/
+  width: 100%;
+  height: 750px;
+}
+
+.mainBar {
+  height: 100px;
+  width: 100%;
+  background-color: #755c5c;
+  position: relative;
+}
+
+.mainLogo {
+  background-image: url('../logo/uniform_logo.png');
+  height: 100px;
+  width: 300px;
+  background-size : cover;
+  background-position : center;
+  position: relative;
+}
+
 /*회원가입1 페이지*/
+.signUpFormGroup h2 {
+  text-align: center;
+  font-family:'Times New Roman', Times, serif;
+  font-size: 45px;
+  font-weight: bolder;
+  color: #ff8d3f;
+}
 
 .verificationNumberGroup {
   display: flex;
@@ -11,14 +40,14 @@
 }
 
 .verificationNumberButton {
-  height: 35px;
+  height: 38px;
   color: white;
   font-weight: bolder;
   font-size: 12px;
   margin-bottom: 10px;
-  border-radius: 3px;
-  background-color: #1BBC9B;
-  border: 2px solid #1BBC9B;
+  border-radius: 5px;
+  background-color: #ff8d3f;
+  border: 2px solid #ff8d3f;
 }
 
 .confirmNumberGroup {
@@ -32,14 +61,14 @@
 }
 
 .confirmNumberGroup button {
-  height: 35px;
+  height: 38px;
   color: white;
   font-weight: bolder;
   font-size: 12px;
   margin-bottom: 10px;
-  border-radius: 3px;
-  background-color: #1BBC9B;
-  border: 2px solid #1BBC9B;
+  border-radius: 5px;
+  background-color: #ff8d3f;
+  border: 2px solid #ff8d3f;
 }
 
 .nextButton {
@@ -49,12 +78,21 @@
   font-size: 15px;
   padding: 10px;
   margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  background-color: #1BBC9B;
+  margin-left: 1px;
+  border: 1px solid #ff8d3f;
+  border-radius: 5px;
+  background-color: #ff8d3f;
 }
 
 /*회원가입2 페이지*/
+.idPasswordGroup h2 {
+  text-align: center;
+  font-family:'Times New Roman', Times, serif;
+  font-size: 45px;
+  font-weight: bolder;
+  color: #ff8d3f;
+}
+
 .confirmIdGroup {
   display: flex;
   gap: 10px; 
@@ -66,14 +104,14 @@
 }
 
 .confirmIdGroup button {
-  height: 35px;
+  height: 38px;
   color: white;
   font-weight: bolder;
   font-size: 12px;
   margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  background-color: #1BBC9B;
+  border: 1px solid #ff8d3f;
+  border-radius: 5px;
+  background-color: #ff8d3f;
 }
 
 .signUpButton {
@@ -84,7 +122,8 @@
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  background-color: #1BBC9B;
+  margin-left: 1px;
+  border: 1px solid #ff8d3f;
+  border-radius: 5px;
+  background-color: #ff8d3f;
 }

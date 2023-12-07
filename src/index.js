@@ -14,19 +14,34 @@ import MySpec from './mySpec/mySpec.js';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   //<React.StrictMode>
+=======
+import IdFinder from './login/idFinder.js';
+import PasswordFinder from './login/passwordFinder.js';
+import ChatBot from './chatBot/chatBotPage.js';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
       <BrowserRouter>
       
         <Routes>
           <Route path="/" element={<App />}/>
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/idFinder" element={<IdFinder />} />
+          <Route path="/passwordFinder" element={<PasswordFinder />} />
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/myspec" element={<MySpec />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/signup2" element={<SignUpPage2 />} />
+          <Route path="/chatbot" element={<ChatBot />} />
         </Routes>
         
       </BrowserRouter>
   //</React.StrictMode>
+=======
+    </Provider>
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

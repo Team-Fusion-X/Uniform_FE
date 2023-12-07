@@ -1,21 +1,45 @@
 /* body {
   background-color: #1BBC9B;
 } */
+=======
+.loginPage {
+  height: 750px;
+}
 
-.App {
-  text-align: center;
-  /* padding: 20px; */
+.mainBar {
+  height: 100px;
+  width: 100%;
+  background-color: #755c5c;
+  position: relative;
+}
+
+.mainLogo {
+  background-image: url('../logo/uniform_logo.png');
+  height: 100px;
+  width: 300px;
+  background-size : cover;
+  background-position : center;
+  position: relative;
 }
 
 form {
-    max-width: 400px;
-    margin: 0 auto;
+    margin-top: 120px;
+    margin-left: 500px;
+    max-width: 480px;
     padding: 20px;
-    border: 1px solid #ccc;
+    border: 2px solid #ff8d3f;
     border-radius: 5px;
-    background-color: #EEEFF1;
+    background-color: white;
 }
-  
+
+.loginFormGroup h2 {
+    text-align: center;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 45px;
+    font-weight: bolder;
+    color: #ff8d3f;
+}
+
 label {
     display: block;
     margin-bottom: 10px;
@@ -24,10 +48,10 @@ label {
   
 /* input {
     flex: 1;
-    width: 95%;
+    width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-    border: 2px solid #1BBC9B;
+    border: 2px solid #ff8d3f;
     border-radius: 3px;
 } */
   
@@ -52,10 +76,10 @@ label {
     padding: 10px;
     margin-top: 10px;
     margin-bottom: 5px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    background-color: #1BBC9B;
-  
+    margin-left: 1px;
+    border: 1px solid #ff8d3f;
+    border-radius: 5px;
+    background-color: #ff8d3f;
 }
   
 .belowFormGroup {
@@ -93,7 +117,53 @@ label {
 .signUp {
     display: flex;
 }
+
+/*아이디 찾기 페이지*/
+.idFindFormGroup h2 {
+    text-align: center;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 45px;
+    font-weight: bolder;
+    color: #ff8d3f;
+}
   
 .idFind {
     display: flex;
+}
+
+.idFindButton {
+    width: 100%;
+    color: white;
+    font-weight: bolder;
+    font-size: 15px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-left: 1px;
+    border: 1px solid #ff8d3f;
+    border-radius: 5px;
+    background-color: #ff8d3f; 
+}
+
+/*패스워드 찾기 페이지*/
+.passwordFindFormGroup h2 {
+    text-align: center;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 45px;
+    font-weight: bolder;
+    color: #ff8d3f;
+}
+
+.passwordFindButton {
+    width: 100%;
+    color: white;
+    font-weight: bolder;
+    font-size: 15px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-left: 1px;
+    border: 1px solid #ff8d3f;
+    border-radius: 5px;
+    background-color: #ff8d3f; 
 }
