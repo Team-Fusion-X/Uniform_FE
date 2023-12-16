@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './loginPage.css';
 
@@ -11,16 +11,6 @@ function LoginPage() {
     password: '',
     rememberId: false,
   });
-  
-  const [csrfToken, setCsrfToken] = useState(''); // 서버에서 받아온 CSRF 토큰을 저장하는 상태 변수
-
-  useEffect(() => {
-    // 서버에서 CSRF 토큰을 가져옴
-    fetch('https://127.0.0.1:8000/login/csrf-token')
-      .then(response => response.json())
-      .then(data => setCsrfToken(data.csrfToken))
-      .catch(error => console.error('CSRF 토큰을 가져오는 중 오류 발생:', error));
-  }, []);
 
   // 입력 값에 대한 상태를 업데이트하는 함수
   function handleChange(e) {
@@ -45,13 +35,13 @@ function handleSubmit(e) {
 
   // 임의로 지정 (나중에 DB 사용해야 할 부분)
   const appointUser = {
-    userId: 'testuser',
-    password: '1234',
+    userId: 'testuser12',
+    password: 'test1234',
   };
 
   if (formData.userId === appointUser.userId && formData.password === appointUser.password) {
     // 아이디와 비밀번호가 일치할 때
-    const isSuccess = window.confirm('로그인 성공! 오늘 하루도 화이팅!');
+    const isSuccess = alert('로그인 성공! 오늘 하루도 화이팅!');
 
     if (isSuccess) {
       // 성공하면 아이디와 비밀번호 초기화
@@ -76,7 +66,6 @@ function handleSubmit(e) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'X-CSRF-Token': csrfToken, // CSRF 토큰을 요청 헤더에 포함
     },
     body: JSON.stringify({
       userId: formData.userId,
@@ -143,7 +132,6 @@ function handleSubmit(e) {
         <button type="submit" className="loginButton">
           로그인
         </button>
-
         <div className="belowFormGroup">
           <div className="rememberId">
             <label>
