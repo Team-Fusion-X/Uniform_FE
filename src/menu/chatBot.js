@@ -9,7 +9,7 @@ function ChatBot() {
         <img src="" alt=""/>
       </div>
       <div className="context">
-        <Link to="chat-page">
+        <Link to="chatBot">
           <h4>챗봇</h4>
         </Link>
         <p>자기소개서 분석, 수정 및 활동, 공모전 추천</p>
