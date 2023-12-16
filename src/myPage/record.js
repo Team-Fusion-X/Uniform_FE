@@ -1,52 +1,57 @@
-import { React, useState } from 'react';
+import { React, useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './record.css';
+import axios from 'axios';
+import { usePostData } from './recordUtils.js'; // 파일 경로에 따라 수정
 
 {/* <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> */}
 
 function Record () {
   
+  // const [postData_utils, updatePostData] = usePostData();
+  // console.log(postData_utils);
+  
   // 선택한 교과
-  let [selectSubject, setSelectSubject] = useState();
+  let [curriculum, setCurriculum] = useState();
   // 선택한 교과에 따른 과목 리스트
-  let [selectSubjectOption, setSelectSubjectOption] = useState([]);
+  let [subject, setSubject] = useState([]);
 
   // 교과 선택시 호출 함수
   let handleSubjectChange = (e) => {
     let subjectValue = e.target.value;
-    setSelectSubject(subjectValue);
+    setCurriculum(subjectValue);
 
     if ( subjectValue === '국어' ) {
-      setSelectSubjectOption(['국어1', '국어2', '국어3']);
+      setSubject(['국어1', '국어2', '국어3']);
     } else if ( subjectValue === '수학' ) {
-      setSelectSubjectOption(['수학1', '수학2', '수학3']);
+      setSubject(['수학1', '수학2', '수학3']);
     } else if ( subjectValue === '영어' ) {
-      setSelectSubjectOption(['영어1', '영어2', '영어3']);
+      setSubject(['영어1', '영어2', '영어3']);
     } else if ( subjectValue === '사회' ) {
-      setSelectSubjectOption(['사회1', '사회2', '사회3']);
+      setSubject(['사회1', '사회2', '사회3']);
     } else if ( subjectValue === '과학' ) {
-      setSelectSubjectOption(['과학1', '과학2', '과학3']);
+      setSubject(['과학1', '과학2', '과학3']);
     } else if ( subjectValue === '체육' ) {
-      setSelectSubjectOption(['체육1', '체육2', '체육3']);
+      setSubject(['체육1', '체육2', '체육3']);
     } else if ( subjectValue === '예술' ) {
-      setSelectSubjectOption(['예술1', '예술2', '예술3']);
+      setSubject(['예술1', '예술2', '예술3']);
     } else {
-      setSelectSubjectOption([]);
+      setSubject([]);
     }
   }
 
 
   // 성적 입력값 저장
   let [scoreData, setScoreData] = useState({
-    selectSubject: '',
-    selectSubjectOption: '',
-    unit: '',
-    originalScore: '',
-    averageScore: '',
+    curriculum: '',
+    subject: '',
+    credits: '',
+    rawScore: '',
+    subjectAverage: '',
     standardDeviation: '',
-    numberOfStudents: '',
-    grade: '',
+    stuentsNumber: '',
+    rank: '',
   });
 
 
@@ -54,35 +59,35 @@ function Record () {
   let handleSelectSubjectChange = (e) => {
     setScoreData({
       ...scoreData,
-      selectSubject: e.target.value
+      curriculum: e.target.value
     });
   };
 
   let handleSelectSubjectOptionChange = (e) => {
     setScoreData({
       ...scoreData,
-      selectSubjectOption: e.target.value
+      subject: e.target.value
     });
   };
 
-  let handleUnitChange = (e) => {
+  let handleCreditChange = (e) => {
     setScoreData({
       ...scoreData,
-      unit: e.target.value
+      credits: e.target.value
     });
   };
 
-  let handleOriginalScoreChange = (e) => {
+  let handleRawScoreChange = (e) => {
     setScoreData({
       ...scoreData,
-      originalScore: e.target.value
+      rawScore: e.target.value
     });
   };
 
-  let handleAverageScoreChange = (e) => {
+  let handleSubjectAverageChange = (e) => {
     setScoreData({
       ...scoreData,
-      averageScore: e.target.value
+      subjectAverage: e.target.value
    })
   };
 
@@ -93,17 +98,17 @@ function Record () {
    })
   };
 
-  let handleNumberOfStudentsChange = (e) => {
+  let handleStuentsNumberChange = (e) => {
     setScoreData({
       ...scoreData,
-      numberOfStudents: e.target.value
+      stuentsNumber: e.target.value
    })
   };
 
-  let handleGradeChange = (e) => {
+  let handleRankChange = (e) => {
     setScoreData({
       ...scoreData,
-      grade: e.target.value
+      rank: e.target.value
    })
   };
 
@@ -141,6 +146,8 @@ function Record () {
     setScoreDataList1_1([...scoreDataList1_1, newScoreData]);
     setScoreDataArray1_1([...scoreDataArray1_1, newScoreData]);
     setShowScoreData(true);
+    // 로컬스토리지에 입력 데이터 저장
+    localStorage.setItem('1years1semester', JSON.stringify([...scoreDataList1_1, newScoreData]));
   };
 
   let handleSaveButtonClick1_2 = () => {
@@ -148,6 +155,7 @@ function Record () {
     setScoreDataList1_2([...scoreDataList1_2, newScoreData]);
     setScoreDataArray1_2([...scoreDataArray1_2, newScoreData]);
     setShowScoreData(true);
+    localStorage.setItem('1years2semester', JSON.stringify([...scoreDataList1_2, newScoreData]));
   };
 
   let handleSaveButtonClick2_1 = () => {
@@ -155,6 +163,7 @@ function Record () {
     setScoreDataList2_1([...scoreDataList2_1, newScoreData]);
     setScoreDataArray2_1([...scoreDataArray2_1, newScoreData]);
     setShowScoreData(true);
+    localStorage.setItem('2years1semester', JSON.stringify([...scoreDataList2_1, newScoreData]));
   };
 
   let handleSaveButtonClick2_2 = () => {
@@ -162,6 +171,7 @@ function Record () {
     setScoreDataList2_2([...scoreDataList2_2, newScoreData]);
     setScoreDataArray2_2([...scoreDataArray2_2, newScoreData]);
     setShowScoreData(true);
+    localStorage.setItem('2years2semester', JSON.stringify([...scoreDataList2_2, newScoreData]));
   };
 
   let handleSaveButtonClick3_1 = () => {
@@ -169,6 +179,7 @@ function Record () {
     setScoreDataList3_1([...scoreDataList3_1, newScoreData]);
     setScoreDataArray3_1([...scoreDataArray3_1, newScoreData]);
     setShowScoreData(true);
+    localStorage.setItem('3years1semester', JSON.stringify([...scoreDataList3_1, newScoreData]));
   };
 
   let handleSaveButtonClick3_2 = () => {
@@ -176,6 +187,7 @@ function Record () {
     setScoreDataList3_2([...scoreDataList3_2, newScoreData]);
     setScoreDataArray3_2([...scoreDataArray3_2, newScoreData]);
     setShowScoreData(true);
+    localStorage.setItem('3years2semester', JSON.stringify([...scoreDataList3_2, newScoreData]));
   };
 
   // 탭상태 
@@ -183,84 +195,134 @@ function Record () {
 
   // 탭에따른 저장 버튼 함수
   let handleSaveButtonClick = () => {
+    let newScoreData = { ...scoreData };
+    let updatedPostData = { ...postData };
+
     if (activeTab === 'nav-1-1') {
       handleSaveButtonClick1_1();
+      updatedPostData.grade['1years1semester'] = [...scoreDataArray1_1, newScoreData];
       setScoreData({
-        selectSubject: '',
-        selectSubjectOption: '',
-        unit: '',
-        originalScore: '',
-        averageScore: '',
+        curriculum: '',
+        subject: '',
+        credits: '',
+        rawScore: '',
+        subjectAverage: '',
         standardDeviation: '',
-        numberOfStudents: '',
-        grade: '',
+        stuentsNumber: '',
+        rank: '',
       });
     } else if (activeTab === 'nav-1-2') {
       handleSaveButtonClick1_2();
+      updatedPostData.grade['1years2semester'] = [...scoreDataArray1_2, newScoreData];
       setScoreData({
-        selectSubject: '',
-        selectSubjectOption: '',
-        unit: '',
-        originalScore: '',
-        averageScore: '',
+        curriculum: '',
+        subject: '',
+        credits: '',
+        rawScore: '',
+        subjectAverage: '',
         standardDeviation: '',
-        numberOfStudents: '',
-        grade: '',
+        stuentsNumber: '',
+        rank: '',
       });
     } else if (activeTab === 'nav-2-1') {
       handleSaveButtonClick2_1();
+      updatedPostData.grade['2years1semester'] = [...scoreDataArray2_1, newScoreData];
       setScoreData({
-        selectSubject: '',
-        selectSubjectOption: '',
-        unit: '',
-        originalScore: '',
-        averageScore: '',
+        curriculum: '',
+        subject: '',
+        credits: '',
+        rawScore: '',
+        subjectAverage: '',
         standardDeviation: '',
-        numberOfStudents: '',
-        grade: '',
+        stuentsNumber: '',
+        rank: '',
       });   
     } else if (activeTab === 'nav-2-2') {
       handleSaveButtonClick2_2();    
+      updatedPostData.grade['2years2semester'] = [...scoreDataArray2_2, newScoreData];
       setScoreData({
-        selectSubject: '',
-        selectSubjectOption: '',
-        unit: '',
-        originalScore: '',
-        averageScore: '',
+        curriculum: '',
+        subject: '',
+        credits: '',
+        rawScore: '',
+        subjectAverage: '',
         standardDeviation: '',
-        numberOfStudents: '',
-        grade: '',
+        stuentsNumber: '',
+        rank: '',
       });
     } else if (activeTab === 'nav-3-1') {
       handleSaveButtonClick3_1();
+      updatedPostData.grade['3years1semester'] = [...scoreDataArray3_1, newScoreData];
       setScoreData({
-        selectSubject: '',
-        selectSubjectOption: '',
-        unit: '',
-        originalScore: '',
-        averageScore: '',
+        curriculum: '',
+        subject: '',
+        credits: '',
+        rawScore: '',
+        subjectAverage: '',
         standardDeviation: '',
-        numberOfStudents: '',
-        grade: '',
+        stuentsNumber: '',
+        rank: '',
       });    
     } else if (activeTab === 'nav-3-2') {
       handleSaveButtonClick3_2();   
+      updatedPostData.grade['3years2semester'] = [...scoreDataArray3_2, newScoreData];
       setScoreData({
-      selectSubject: '',
-      selectSubjectOption: '',
-      unit: '',
-      originalScore: '',
-      averageScore: '',
-      standardDeviation: '',
-      numberOfStudents: '',
-      grade: '',
+        curriculum: '',
+        subject: '',
+        credits: '',
+        rawScore: '',
+        subjectAverage: '',
+        standardDeviation: '',
+        stuentsNumber: '',
+        rank: '',
       }); 
     }
+
+    // 교과와 과목 초기화
+    setCurriculum('');
+    setSubject([]);
+
+    // 업데이트된 updatedPostData를 최종 데이터로 설정
+    setPostData(updatedPostData);
+    
+    // 업데이트된 updatedPostData를 최종 데이터로 설정
+    // updatePostData({ grade: updatedPostData.grade });
+
+    // json형태의 성적 데이터 post 보내기
+    // let sendPostData = () => {
+    //   axios.post('http://orion.mokpo.ac.kr:8482/api/analysis', postData)
+    //     .then((response) => {
+    //       // 전송이 성공하면 실행할 코드
+    //       console.log('데이터가 성공적으로 전송되었습니다.', response);
+    //     })
+    //     .catch((error) => {
+    //       // 전송이 실패하면 실행할 코드
+    //       console.error('데이터 전송 중 오류가 발생했습니다.', error);
+    //     });
+    // };
+
+    // sendPostData()
+
+    // 임시로 로컬스토리지에 grade 객체 저장
+    
   };
 
 
 
+  // 입력된 성적들 POST보내기위해 json형태로 새로운 state에 저장
+  let [postData, setPostData] = useState({
+    // preferredSchool:'',
+    // preferredMajor:'',
+    grade:{
 
+    }
+  })
+  console.log(postData);
+
+  // 로컬 스토리지에 데이터 저장하는 useEffect
+  useEffect(() => {
+    localStorage.setItem('grade', JSON.stringify(postData));
+  }, [postData]);
     return (
 
       <div>
@@ -295,14 +357,14 @@ function Record () {
                 <tbody>
                   {scoreDataArray1_1.map((score, index) => (
                     <tr key={index}>
-                      <th scope="row">{score.selectSubject}</th>
-                      <td>{score.selectSubjectOption}</td>
-                      <td>{score.unit}</td>
-                      <td>{score.originalScore}</td>
-                      <td>{score.averageScore}</td>
+                      <th scope="row">{score.curriculum}</th>
+                      <td>{score.subject}</td>
+                      <td>{score.credits}</td>
+                      <td>{score.rawScore}</td>
+                      <td>{score.subjectAverage}</td>
                       <td>{score.standardDeviation}</td>
-                      <td>{score.numberOfStudents}</td>
-                      <td>{score.grade}</td>
+                      <td>{score.stuentsNumber}</td>
+                      <td>{score.rank}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -334,14 +396,14 @@ function Record () {
                   <tbody>
                     {scoreDataArray1_2.map((score, index) => (
                       <tr key={index}>
-                        <th scope="row">{score.selectSubject}</th>
-                        <td>{score.selectSubjectOption}</td>
-                        <td>{score.unit}</td>
-                        <td>{score.originalScore}</td>
-                        <td>{score.averageScore}</td>
+                        <th scope="row">{score.curriculum}</th>
+                        <td>{score.subject}</td>
+                        <td>{score.credits}</td>
+                        <td>{score.rawScore}</td>
+                        <td>{score.subjectAverage}</td>
                         <td>{score.standardDeviation}</td>
-                        <td>{score.numberOfStudents}</td>
-                        <td>{score.grade}</td>
+                        <td>{score.stuentsNumber}</td>
+                        <td>{score.rank}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -378,14 +440,14 @@ function Record () {
                   <tbody>
                     {scoreDataArray2_1.map((score, index) => (
                       <tr key={index}>
-                        <th scope="row">{score.selectSubject}</th>
-                        <td>{score.selectSubjectOption}</td>
-                        <td>{score.unit}</td>
-                        <td>{score.originalScore}</td>
-                        <td>{score.averageScore}</td>
+                        <th scope="row">{score.curriculum}</th>
+                        <td>{score.subject}</td>
+                        <td>{score.credits}</td>
+                        <td>{score.rawScore}</td>
+                        <td>{score.subjectAverage}</td>
                         <td>{score.standardDeviation}</td>
-                        <td>{score.numberOfStudents}</td>
-                        <td>{score.grade}</td>
+                        <td>{score.stuentsNumber}</td>
+                        <td>{score.rank}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -422,14 +484,14 @@ function Record () {
                   <tbody>
                     {scoreDataArray2_2.map((score, index) => (
                       <tr key={index}>
-                        <th scope="row">{score.selectSubject}</th>
-                        <td>{score.selectSubjectOption}</td>
-                        <td>{score.unit}</td>
-                        <td>{score.originalScore}</td>
-                        <td>{score.averageScore}</td>
+                        <th scope="row">{score.curriculum}</th>
+                        <td>{score.subject}</td>
+                        <td>{score.credits}</td>
+                        <td>{score.rawScore}</td>
+                        <td>{score.subjectAverage}</td>
                         <td>{score.standardDeviation}</td>
-                        <td>{score.numberOfStudents}</td>
-                        <td>{score.grade}</td>
+                        <td>{score.stuentsNumber}</td>
+                        <td>{score.rank}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -466,14 +528,14 @@ function Record () {
                   <tbody>
                     {scoreDataArray3_1.map((score, index) => (
                       <tr key={index}>
-                        <th scope="row">{score.selectSubject}</th>
-                        <td>{score.selectSubjectOption}</td>
-                        <td>{score.unit}</td>
-                        <td>{score.originalScore}</td>
-                        <td>{score.averageScore}</td>
+                        <th scope="row">{score.curriculum}</th>
+                        <td>{score.subject}</td>
+                        <td>{score.credits}</td>
+                        <td>{score.rawScore}</td>
+                        <td>{score.subjectAverage}</td>
                         <td>{score.standardDeviation}</td>
-                        <td>{score.numberOfStudents}</td>
-                        <td>{score.grade}</td>
+                        <td>{score.stuentsNumber}</td>
+                        <td>{score.rank}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -510,14 +572,14 @@ function Record () {
                   <tbody>
                     {scoreDataArray3_2.map((score, index) => (
                       <tr key={index}>
-                        <th scope="row">{score.selectSubject}</th>
-                        <td>{score.selectSubjectOption}</td>
-                        <td>{score.unit}</td>
-                        <td>{score.originalScore}</td>
-                        <td>{score.averageScore}</td>
+                        <th scope="row">{score.curriculum}</th>
+                        <td>{score.subject}</td>
+                        <td>{score.credits}</td>
+                        <td>{score.rawScore}</td>
+                        <td>{score.subjectAverage}</td>
                         <td>{score.standardDeviation}</td>
-                        <td>{score.numberOfStudents}</td>
-                        <td>{score.grade}</td>
+                        <td>{score.stuentsNumber}</td>
+                        <td>{score.rank}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -568,7 +630,7 @@ function Record () {
             <tbody>
               <tr>
                 <td scope="row">
-                  <select value={selectSubject} onChange={multipleSubject} className="form-select" aria-label="Default select example">
+                  <select value={curriculum} onChange={multipleSubject} className="form-select" aria-label="Default select example">
                     <option selected>교과선택</option>
                     <option value="국어">국어</option>
                     <option value="수학">수학</option>
@@ -582,7 +644,7 @@ function Record () {
                 <td>
                   <select className="form-select" onChange={handleSelectSubjectOptionChange} aria-label="Default select example">
                     <option value='' selected>과목선택</option>
-                    {selectSubjectOption.map((option, index) => (
+                    {subject.map((option, index) => (
                       <option key={index} value={option}>
                         {option}
                       </option>
@@ -592,16 +654,16 @@ function Record () {
                 <td>
                   <input type="number" 
                     className="form-control" 
-                    value={scoreData.unit} 
-                    onChange={handleUnitChange}
+                    value={scoreData.credits} 
+                    onChange={handleCreditChange}
                   ></input>
                 </td>
                 <td>
                   <input 
                     type="number" 
                     className="form-control" 
-                    value={scoreData.originalScore} 
-                    onChange={handleOriginalScoreChange}
+                    value={scoreData.rawScore} 
+                    onChange={handleRawScoreChange}
                   ></input>
                 </td>
                 <td>
@@ -609,8 +671,8 @@ function Record () {
                     type="number" 
                     className="form-control" 
                     step="0.1"
-                    value={scoreData.averageScore} 
-                    onChange={handleAverageScoreChange}
+                    value={scoreData.subjectAverage} 
+                    onChange={handleSubjectAverageChange}
                   ></input>
                 </td>
                 <td>
@@ -626,16 +688,16 @@ function Record () {
                   <input 
                     type="number" 
                     className="form-control" 
-                    value={scoreData.numberOfStudents}
-                    onChange={handleNumberOfStudentsChange}
+                    value={scoreData.stuentsNumber}
+                    onChange={handleStuentsNumberChange}
                   ></input>
                 </td>
                 <td>
                   <input 
                     type="number" 
                     className="form-control" 
-                    value={scoreData.grade}
-                    onChange={handleGradeChange}
+                    value={scoreData.rank}
+                    onChange={handleRankChange}
                   ></input>
                 </td>
                 
