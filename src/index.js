@@ -10,21 +10,15 @@ import SignUpPage from './signUp/signUpPage.js';
 import SignUpPage2 from './signUp/signUpPage2.js';
 import LoginPage from './login/loginPage.js';
 import MySpec from './mySpec/mySpec.js';
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  //<React.StrictMode>
-=======
 import IdFinder from './login/idFinder.js';
 import PasswordFinder from './login/passwordFinder.js';
 import ChatBot from './chatBot/chatBotPage.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <Provider store={store}>
+  //<React.StrictMode>
       <BrowserRouter>
-      
+
         <Routes>
           <Route path="/" element={<App />}/>
           <Route path="/login" element={<LoginPage />} />
@@ -36,12 +30,9 @@ root.render(
           <Route path="/signup2" element={<SignUpPage2 />} />
           <Route path="/chatbot" element={<ChatBot />} />
         </Routes>
-        
+
       </BrowserRouter>
   //</React.StrictMode>
-=======
-    </Provider>
-  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
