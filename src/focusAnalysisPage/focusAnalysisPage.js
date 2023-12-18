@@ -294,8 +294,8 @@ function FocusAnalysisPage() {
   let [receivedResultData, setReceiveResultData] = useState({
     "school": "전남대학교",
     "major": "컴퓨터공학과",
-    "admissionProbability": "11",
-    "danger": "6"
+    "admissionProbability": "72",
+    "danger": "2"
 });
 
 

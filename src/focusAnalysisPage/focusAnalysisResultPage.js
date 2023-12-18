@@ -58,8 +58,8 @@ function FocusAnalysisResultPage(props) {
           <div className='uni-search-1'>
             <div className='container '>
               <img className='uni-logo' src={cnu} alt=''></img>
-              <label for="exampleDataList" class="form-label">{school}</label>
-              <label for="exampleDataList" class="form-label">{major}</label>
+              <label style={{ fontSize: '18px' }} for="exampleDataList" class="form-label">{school}</label>
+              <label style={{ fontSize: '18px' }} for="exampleDataList" class="form-label">{major}</label>
               
               <div className="progress-bar">
                 <div className="filler" style={{ width: `${admissionProbability}%` }}>
