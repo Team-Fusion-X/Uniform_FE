@@ -6,7 +6,7 @@
 
 .danger {
     font-weight: bold;
-    color: red;
+    color: #0042b3;
 }
 
 
@@ -20,7 +20,7 @@
   .filler {
     width: 0;
     height: 30px;
-    background-color: #e42828;
+    background-color: #0042b3;
     text-align: center;
     transition: width 1s ease-in-out;
   }
@@ -35,7 +35,7 @@
     border: 2px solid #c0bbbb;
     border-radius: 20px;
     padding: 10px;
-    
+    font-size: 18px;
 }
 
   
