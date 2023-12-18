@@ -9,6 +9,10 @@ function SignUpPage2() {
   // 현재 location에서 state 가져오기
   let location = useLocation();
   // location 객체에서 state 속성을 추출하여 변수에 할당
+function SignUpPage2(props) {
+  let navigate = useNavigate();
+  // 현재 location에서 state 가져오기
+  let location = useLocation();
   let { state } = location;
 
   // state에 있는 데이터 사용
@@ -22,6 +26,9 @@ function SignUpPage2() {
   });
  
   // JSON 데이터를 문자열로 변환하여 출력 (콘솔 로그에)
+  console.log(JSON.stringify(formData));
+
+  // JSON 데이터를 문자열로 변환하여 출력
   console.log(JSON.stringify(formData));
 
   // 사용자의 인증 여부를 관리하는 상태 변수
@@ -38,6 +45,7 @@ function SignUpPage2() {
     // 만약 변경된 값이 memberPasswordCheck 필드라면, 비밀번호 일치 여부를 검사하고 상태 업데이트
     if (e.target.name === 'memberPasswordCheck') {
       // 현재 비밀번호와 비밀번호 확인 값이 일치하는지 여부를 상태로 관리
+    if (e.target.name === 'memberPasswordCheck') {
       setIsPasswordMatch(formData.memberPassword === e.target.value);
     }
   }
@@ -130,15 +138,22 @@ function SignUpPage2() {
           try {
             const jsonData = JSON.parse(data);
             if (jsonData.success) {
+
               // 회원가입 성공 시 알림
               alert('회원가입 성공! 입시정보왕이 되어 보세요!');
 
               // 입력 폼 초기화
+
+              // 회원가입 성공 시 알림 및 초기화
+              console.log('회원가입 성공! 입시정보왕이 되어 보세요!');
+
+
               setFormData({
                 "memberId": '',
                 "memberPassword": '',
                 "memberPasswordCheck": '',
               });
+
 
               // 메인 페이지롤 이동
               navigate('/');

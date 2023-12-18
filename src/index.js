@@ -13,6 +13,8 @@ import MySpec from './mySpec/mySpec.js';
 import IdFinder from './login/idFinder.js';
 import PasswordFinder from './login/passwordFinder.js';
 import ChatBot from './chatBot/chatBotPage.js';
+import FocusAnalysisPage from './focusAnalysisPage/focusAnalysisPage.js';
+import FocusAnalysisResultPage from './focusAnalysisPage/focusAnalysisResultPage.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -29,6 +31,9 @@ root.render(
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/signup2" element={<SignUpPage2 />} />
           <Route path="/chatbot" element={<ChatBot />} />
+          <Route path="/focusPage" element={<FocusAnalysisPage />} />
+          <Route path="/focusResultPage" element={<FocusAnalysisResultPage />} />
+          
         </Routes>
 
       </BrowserRouter>

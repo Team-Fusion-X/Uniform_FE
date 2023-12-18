@@ -9,7 +9,7 @@ function FocusAnalysis() {
         <img src="" alt=""/>
       </div>
       <div className="context">
-        <Link to="focus-page">
+        <Link to="focusPage">
           <h4>집중분석</h4>
         </Link>
         <p>원하는 대학을 집중적으로 분석!</p>

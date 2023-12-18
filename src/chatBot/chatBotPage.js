@@ -17,6 +17,14 @@ function ChatBot() {
   const [loading, setLoading] = useState(false); // 로딩 여부를 저장하는 상태
 
   // 채팅창이 업데이트될 때 자동으로 스크롤을 아래로 이동시키는 useEffect
+  const chatWindowRef = useRef(null); // 채팅창을 참조하기 위한 useRef
+  const [showCompetitionModal, setShowCompetitionModal] = useState(false); // 공모전 모달 표시 여부
+  const [showActivityModal, setShowActivityModal] = useState(false); // 교과활동 모달 표시 여부
+  const [questionCount, setQuestionCount] = useState(1); // 질문 카운트를 저장하는 상태
+  const [questionIndex, setQuestionIndex] = useState(0);
+  const [allResponses, setAllResponses] = useState([]); // 사용자의 모든 응답을 저장하는 상태
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     chatWindowRef.current.scrollTop = chatWindowRef.current.scrollHeight;
   }, [chat]);
@@ -36,10 +44,11 @@ function ChatBot() {
   // 메시지 전송 버튼 클릭 시 호출되는 함수
   function handleSendMessage() {
     // 입력값이 공백인 경우 함수 종료
+  function handleSendMessage() {
     if (!userInput.trim()) {
       return;
     }
-
+  
     // 사용자 입력 메시지 추가
     setChat((prevChat) => [...prevChat, { type: 'user', text: userInput }]);
     setUserInput('');
@@ -48,6 +57,13 @@ function ChatBot() {
     const apiUrl = 'http://orion.mokpo.ac.kr:8582/api/self-introduction';
 
     // 서버 주소에 POST 요청 보내기
+    // Step 1: 사용자 입력 메시지 추가
+    setChat((prevChat) => [...prevChat, { type: 'user', text: userInput }]);
+    setUserInput('');
+
+    const apiUrl = 'http://orion.mokpo.ac.kr:8582/api/self-introduction';
+
+    // Step 2: http://orion.mokpo.ac.kr:8582/api/self-introduction에 POST 요청 보내기
     fetch(apiUrl, {
       method: 'POST',
       headers: {
@@ -58,6 +74,7 @@ function ChatBot() {
       .then((response1) => response1.json())
       .then((data1) => {
         // 채팅창에 메시지 및 질문 리스트 추가
+        // Step 3: 채팅창에 메시지 및 질문 리스트 추가
         setTimeout(() => {
           console.log(JSON.stringify(data1, null, 2));
           // 메시지와 질문 리스트의 개행 문자를 처리
@@ -89,6 +106,23 @@ function ChatBot() {
     setUserInput('');
 
     // 서버에 두 번째 질문에 대한 사용자 입력값을 POST 요청
+          setChat((prevChat) => [
+            ...prevChat,
+            { type: 'bot', text: <div dangerouslySetInnerHTML={{ __html: formattedMessage }} /> },
+            { type: 'bot', text: formattedQuestionList.map((question, index) => <div key={index} dangerouslySetInnerHTML={{ __html: question }} />) },
+          ]);
+
+          // 사용자가 값을 입력할 수 있게 함
+          setQuestionCount(2); // 두 번째 질문으로 넘어가기 위한 상태 변경
+        }, 1000); // 1초 지연
+      })
+      .catch((error) => console.error('Error:', error));
+  }
+
+  function handleSendMessageSecond() {
+    const userInputValue = userInput.trim();
+
+    setAllResponses((prevResponses) => [...prevResponses, userInputValue]);
     fetch('http://orion.mokpo.ac.kr:8582/api/self-introduction/create', {
       method: 'POST',
       headers: {
@@ -113,6 +147,10 @@ function ChatBot() {
         const updateChat = () => {
           if (currentQuestionIndex === 0) {
             // 첫 번째 질문일 경우 두 개의 메시지 추가
+        const currentQuestionIndex = questionIndex;
+
+        const updateChat = () => {
+          if (currentQuestionIndex === 0) {
             setChat((prevChat) => [
               ...prevChat,
               { type: 'bot', text: data2.message[currentQuestionIndex] },
@@ -142,6 +180,8 @@ function ChatBot() {
             userInputValue,
           ]);
 
+          setUserInput('');
+
           // 마지막 질문에 도달한 경우 서버로 전송
           if (currentQuestionIndex === data2.message.length) {
             const allJson = {
@@ -153,6 +193,7 @@ function ChatBot() {
             setLoading(true);
 
             // 서버에 사용자가 입력한 전체 응답 전송
+            setLoading(true);
             fetch('http://orion.mokpo.ac.kr:8582/api/unifot', {
               method: 'POST',
               headers: {
