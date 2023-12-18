@@ -27,9 +27,11 @@ const Modal1 = ({ closeModal }) => {
 
   // 현재 페이지에 해당하는 이미지를 렌더링하는 함수
   const renderImages = () => {
+    // 현재 페이지의 이미지 범위 계산
     const startIndex = currentPage * 2;
     const endIndex = startIndex + 2;
 
+    // 현재 페이지에 해당하는 이미지를 매핑하여 렌더링
     return images.slice(startIndex, endIndex).map((image, index) => (
       <div key={index} className="imageWrapper">
         <img

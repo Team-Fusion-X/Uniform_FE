@@ -3,10 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import './signUpPage.css';
 import { useLocation } from 'react-router-dom';
 
-function SignUpPage2(props) {
+function SignUpPage2() {
+  // 페이지 이동을 위한 useNavigate 사용
   let navigate = useNavigate();
   // 현재 location에서 state 가져오기
   let location = useLocation();
+  // location 객체에서 state 속성을 추출하여 변수에 할당
   let { state } = location;
 
   // state에 있는 데이터 사용
@@ -18,8 +20,8 @@ function SignUpPage2(props) {
     "memberPhoneNumber": state ? state.memberPhoneNumber || "" : "",
     "memberAuthenticationNumber": state ? state.memberAuthenticationNumber || "" : "",
   });
-
-  // JSON 데이터를 문자열로 변환하여 출력
+ 
+  // JSON 데이터를 문자열로 변환하여 출력 (콘솔 로그에)
   console.log(JSON.stringify(formData));
 
   // 사용자의 인증 여부를 관리하는 상태 변수
@@ -33,7 +35,9 @@ function SignUpPage2(props) {
       [e.target.name]: e.target.value,
     });
 
+    // 만약 변경된 값이 memberPasswordCheck 필드라면, 비밀번호 일치 여부를 검사하고 상태 업데이트
     if (e.target.name === 'memberPasswordCheck') {
+      // 현재 비밀번호와 비밀번호 확인 값이 일치하는지 여부를 상태로 관리
       setIsPasswordMatch(formData.memberPassword === e.target.value);
     }
   }
@@ -103,6 +107,7 @@ function SignUpPage2(props) {
   function handleSubmit(e) {
     e.preventDefault();
 
+    // 비밀번호 일치 여부 및 입력 값 유효성 검사
     if (isPasswordMatch && validateInput()) {
 
       // 서버로 회원가입 정보 전송
@@ -125,21 +130,24 @@ function SignUpPage2(props) {
           try {
             const jsonData = JSON.parse(data);
             if (jsonData.success) {
-              // 회원가입 성공 시 알림 및 초기화
-              console.log('회원가입 성공! 입시정보왕이 되어 보세요!');
+              // 회원가입 성공 시 알림
+              alert('회원가입 성공! 입시정보왕이 되어 보세요!');
 
+              // 입력 폼 초기화
               setFormData({
                 "memberId": '',
                 "memberPassword": '',
                 "memberPasswordCheck": '',
               });
 
+              // 메인 페이지롤 이동
               navigate('/');
             } else {
               // 회원가입 실패 시 알림
               alert('회원가입 실패. 다시 시도해주세요.');
             }
           } catch (error) {
+            // 서버 응답이 올바른 JSON 형식이 아닐 경우 오류 처리
             console.error('서버 응답이 올바른 JSON 형식이 아닙니다:', error.message);
             console.log('서버 응답 데이터:', data);
           }

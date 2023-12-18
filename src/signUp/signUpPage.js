@@ -46,7 +46,7 @@ function SignUpPage() {
       alert('인증에 성공하셨습니다!'); // 인증 성공 메시지 표시
     } else {
       setIsVerified(false);
-      alert('인증번호를 다시 확인해주세요.');
+      alert('인증번호를 다시 확인해주세요.'); // 인증 실패 시 메시지 표시
     }
   }
 
