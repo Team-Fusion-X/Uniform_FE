@@ -1,3 +1,22 @@
+# uniform_fe (작성자: 장용빈)
+유니폼_FE
+작업자 - 장용빈, 공민석
+
+## 작업 내용 (2023-2학기, 기여자: 장용빈)
+### 프론트엔드 초기 환경 세팅
+### 회원가입 페이지 (signUpPage.js, signUpPage2.js, signUpPage.css)
+설명: 회원가입 페이지 기능 구현 및 api 연동 완료
+### 로그인 페이지 (loginPage.js, loginPage.css)
+설명: 로그인 페이지 기능 구현 (api 연동 -> 24년 1학기 예정)
+### 아이디 찾기, 비밀번호 찾기 페이지 (idFinder.js, passwordfinder.js)
+설명: 아이디 찾기, 비밀번호 찾기 페이지 기능 구현 (api 연동 -> 24년 1학기 예정)
+### 챗봇 페이지 (chatBotPage.js, chatBotPage.css)
+설명: 챗봇 페이지 자기소개서 생성 부분 기능 구현 및 api 연동 완료
+### css 스타일 수정 및 개선
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
